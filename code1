@@ -1,0 +1,66 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include<conio.h>
+#include<math.h>
+int main(){
+    int dat,mont,years;
+    printf("enter the year:");
+    scanf("%d",&years);
+    printf("\n enter the month:");
+    scanf("%d",&mont);
+    printf("\n enter the date:");
+    scanf("%d",&dat);
+    weekday(dat,mont,years);
+    return 0;
+}
+int weekday (int date,int month,int year)
+{
+    int dayweek,yr,yd;
+    yr=year%100;
+    yd=year/100;
+    printf("\n the date given is :%d/%d/%d\n\n\n",date,month,year);
+    dayweek=1.25*yr+find(month,year)+date-2*(yd%4);
+    dayweek=dayweek%7;
+    switch(dayweek){
+        case 0:printf("day of week of the date is:saturday");
+        break;
+        case 1:printf("day of week of the date is :sunday");
+        break;
+        case 2:printf("day of the week of the date is:monday ");
+        break;
+        case 3:printf("day of the week of the date is:tuesday");
+        break;
+        case 4:printf("day of the week of the date is:wednesday");
+        break;
+        case 5:printf("day of the week of the date is:thursday");
+        break;
+        case 6:printf("day of the week of the date is:friday");
+        break;
+        default:printf("the given input data is wrong");
+    }
+    return 0;
+}
+int find(int months,int yearss){int findmonth,leapyear;
+if((yearss%100==0)&&(yearss%400!=0))
+leapyear=0;
+else if (yearss%4==0)
+leapyear=1;
+else
+leapyear=0;
+findmonth=3+(2-leapyear)*((months+2)/(2*months))
++(5*months+months/9)/2;
+findmonth=findmonth%7;
+return findmonth;
+}
+    
+    
+
+
+
